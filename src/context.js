@@ -10,6 +10,7 @@ class ContextClass extends React.Component {
         interval: null,
         openSide: true,
         isPlaying: false,
+        shuffle: false,
         musics: [],
     }
 
@@ -23,10 +24,15 @@ class ContextClass extends React.Component {
             this.setState({musics: m.sort((a,b) => a.index - b.index), pickedMusic: m[0]})
         });
     }
+
+    pickRandomIndex = () => {
+        let randomIndex = Math.floor(Math.random() * this.state.musics.length)
+        return randomIndex === this.state.pickedMusic.index ? this.pickRandomIndex() : randomIndex;
+    }
     
     componentDidUpdate() {
         if (this.state.duration > this.state.pickedMusic.duration - 1.1) {
-            let index = this.state.pickedMusic.index + 1 === this.state.musics.length ? 0 : this.state.pickedMusic.index + 1;
+            let index = this.state.shuffle ? this.pickRandomIndex() : this.state.pickedMusic.index + 1 === this.state.musics.length ? 0 : this.state.pickedMusic.index + 1;
             this.changeMusic(this.state.musics[index]);
             this.setState({duration: 0})
         }
@@ -82,6 +88,7 @@ class ContextClass extends React.Component {
             changeState: (val) => this.changeState(val), 
              play: this.playMusic,
              stop: this.stopMusic,
+             randomIndex: this.pickRandomIndex,
              changeDuration: this.changeDuration,
              changeMusic: this.changeMusic,
              changeVolume: this.changeVolume}}>

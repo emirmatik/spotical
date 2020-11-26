@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MyContext } from '../context';
 import { motion } from "framer-motion";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import { container_variants, item_div_variants, item_variants } from "./animation-variants";
 
+const flexStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
+}
+
 function SideList() {
-    const { musics, changeMusic, openSide, pickedMusic, changeState } = React.useContext(MyContext);
+    const { musics, changeMusic, openSide, pickedMusic, changeState } = React.useContext(MyContext)
+    const [allMusics, setAllMusics] = useState(musics);
+
+    useEffect(() => {
+        setAllMusics(musics)
+    }, [musics])
+
+    const searchMusic = (e) => {
+        let search = e.target.value;
+        setAllMusics(musics.filter(m => m.showname.toLowerCase().includes(search.toLowerCase())))
+    }
 
     return (
         <motion.div className="sidelist-container">
@@ -14,13 +30,17 @@ function SideList() {
                 className="sidelist"
                 variants={container_variants}>
 
-                <motion.h2 variants={item_variants} id='side-list-header'>Musics</motion.h2>
+                <motion.div variants={item_variants} style={flexStyle}>
+                    <h2 id='side-list-header'>Musics</h2>
+                    <input type="text" id="music-search" placeholder="Search.." onChange={searchMusic} />
+                </motion.div>
                 <motion.hr variants={item_variants} />
                 <motion.div variants={item_div_variants} id="sidelist-music-list">
-                    {musics.map((music, i) => (
+                    {allMusics.map((music, i) => (
                         <motion.div
                             variants={item_variants}
                             whileTap={{ scale: 0.98 }}
+                            layout
                             key={i}
                             onClick={() => changeMusic(music)}
                             style={{ background: pickedMusic && pickedMusic.showname == music.showname && "rgb(230, 230, 230)" }}
