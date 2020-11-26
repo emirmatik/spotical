@@ -5,10 +5,10 @@
 **Live link: https://spotispoti.netlify.app/**
 
 ## Photos 
-[desktop1.0](https://i.ibb.co/yddZbgT/open-list.png) <br/>
-[desktop1.1](https://i.ibb.co/wYfGb5g/closed-list.png) <br/>
+![desktop1.0](https://i.ibb.co/yddZbgT/open-list.png) <br/>
+![desktop1.1](https://i.ibb.co/wYfGb5g/closed-list.png) <br/>
 ### Mobile <hr/>
-[mobile1.0](https://i.ibb.co/dkjnTmq/mobile.png) <br/>
+![mobile1.0](https://i.ibb.co/dkjnTmq/mobile.png) <br/>
 
 
 ## Getting Started with Create React App
