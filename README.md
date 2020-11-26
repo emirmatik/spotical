@@ -3,11 +3,11 @@
 - Mobile friendly
 
 ### Todos
-[] fix little issue with music layout animations
-[] night mode
-[] replay current music button
-[] add queue feature
-[] custom application icon
+[ ] fix little issue with music layout animations <br/>
+[ ] night mode <br/>
+[ ] replay current music button <br/>
+[ ] add queue feature <br/>
+[ ] custom application icon <br/>
 
 **Live link: https://spotispoti.netlify.app/**
 
