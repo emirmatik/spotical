@@ -1,0 +1,254 @@
+html,body {
+  width: 100%;
+  max-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: 'Jost', sans-serif;
+}
+nav {
+  width: 100%;
+  height: auto;
+}
+#logo {
+  font-family: 'Pacifico', cursive;
+}
+
+/*  main container start */
+.main {
+  display: flex;
+  margin-top: 3rem;
+} 
+
+@media screen and (max-width: 750px) {
+  .container {
+    width: 95%;
+  }
+  .main {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+}
+
+/* side list start */
+
+.sidelist-container {
+  min-width: auto;
+  height: 80vh;
+}
+.sidelist {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid gray;
+  padding-right: 1rem;
+}
+#side-list-header {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif ;
+}
+#sidelist-music-list {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  height: 90%;
+}
+#sidelist-music-list::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+}
+
+#sidelist-music-list::-webkit-scrollbar
+{
+  width: 5px;
+	background-color: #F5F5F5;
+}
+
+#sidelist-music-list::-webkit-scrollbar-thumb
+{
+	background-color: #727272;
+}
+
+.sidelist-music {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: .5rem 0.2rem;
+}
+.sidelist-music:hover {
+  background: rgb(230, 230, 230);
+  cursor: pointer;
+}
+.sidelist-music-cover {
+  width: 3rem;
+  height: 3rem;
+}
+.sidelist-music-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sidelist-music-name {
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: .3s ease all;
+}
+#close-side-list {
+  position: absolute;
+  right: -6.5%;
+  top: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: .2rem 1rem 1rem 0.2rem;
+  border: 1px solid rgb(32, 32, 32);
+  border-left: none;
+  cursor: pointer;
+  transition: .3s ease all;
+}
+#close-side-list:hover {
+  background: rgb(32, 32, 32);
+  color: white;
+}
+
+@media screen and (max-width: 750px) {
+  .sidelist-container {
+    width: 85%;
+    margin: 0 auto;
+    height: 100%;
+  }
+  .sidelist {
+    border-right: 1px solid gray;
+  }
+  #sidelist-music-list {
+    
+    height: 18rem;
+    overscroll-behavior: contain
+}
+  .sidelist-music {
+    padding: 0;
+  }
+  .sidelist-music-name {
+    font-size: .8rem;
+    word-break: keep-all;
+  }
+  .sidelist-music-cover {
+    width: 2rem;
+    height: 2rem;
+  }
+  #close-side-list {
+    display: none;
+  }
+}
+
+/* side list end */
+
+/* music-player start */
+
+.music-player-container {
+  min-width: 65%;
+  margin-left: 5rem;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.music-name {
+  margin: 3rem 0;
+}
+.music-photo {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.music-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 750px) {
+  .music-player-container {
+    width: 95%;
+    height: 100%;
+    margin: 3rem auto;
+  }
+  .music-name {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
+  .music-photo {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+/* music-player end */
+
+/* music-controller start */
+
+.music-controller {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.upper-controller {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#music-prev-next-btn {
+  font-size: 2rem;
+  cursor: pointer;
+}
+#music-play-btn {
+  font-size: 2rem;
+  margin: 0 .5rem;
+  cursor: pointer;
+}
+#volume-icon {
+  font-size: 1.5rem;
+}
+#volume {
+  background: black;
+}
+#duration-controller {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 750px) {
+  .music-controller {
+    width: 100%;
+  }
+  .upper-controller {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  #music-prev-next-btn {
+    font-size: 2rem;
+  }
+  #music-play-btn {
+    font-size: 1.7rem;
+  }
+  #volume-icon {
+    display: none;
+  }
+  #volume-div {
+    display: none !important;
+  }
+  #duration-text {
+    font-size: .8rem
+  }
+  #duration-controller {
+    margin-top: 1rem;
+  }
+}
+
+/* music-controller end */
