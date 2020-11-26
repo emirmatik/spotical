@@ -10,6 +10,7 @@
 ### Mobile <hr/>
 ![mobile1.0](https://i.ibb.co/dkjnTmq/mobile.png) <br/>
 
+<hr/>
 
 ## Getting Started with Create React App
 
