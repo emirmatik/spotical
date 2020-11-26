@@ -2,6 +2,13 @@
 - Minimalist and clear UI
 - Mobile friendly
 
+### Todos
+[] fix little issue with music layout animations
+[] night mode
+[] replay current music button
+[] add queue feature
+[] custom application icon
+
 **Live link: https://spotispoti.netlify.app/**
 
 ## Photos 
