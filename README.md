@@ -1,4 +1,4 @@
-# Spotical - Music Web App
+# Spotical - Music Web App 🎵
 - Minimalist and clear UI
 - Mobile friendly
 
