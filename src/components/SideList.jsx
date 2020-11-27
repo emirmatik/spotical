@@ -40,7 +40,6 @@ function SideList() {
                         <motion.div
                             variants={item_variants}
                             whileTap={{ scale: 0.98 }}
-                            layout
                             key={i}
                             onClick={() => changeMusic(music)}
                             style={{ background: pickedMusic && pickedMusic.showname == music.showname && "rgb(230, 230, 230)" }}
