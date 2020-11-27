@@ -5,7 +5,7 @@
 ### Todos
 [x] <del>fix little issue with music layout animations</del> <br/>
 [ ] night mode <br/>
-[ ] keep last listened music and where it stopped in local storage / cookies to set them when the app opens again 
+[ ] keep the last listened music and where it stopped in local storage / cookies to set them when the app opens again 
 [ ] replay current music button <br/>
 [ ] add queue feature <br/>
 [ ] custom application icon <br/>
