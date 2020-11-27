@@ -3,7 +3,7 @@
 - Mobile friendly
 
 ### Todos
-[ ] fix little issue with music layout animations <br/>
+[x] <del>fix little issue with music layout animations</del> <br/>
 [ ] night mode <br/>
 [ ] replay current music button <br/>
 [ ] add queue feature <br/>
