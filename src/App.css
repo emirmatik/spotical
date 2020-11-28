@@ -12,8 +12,20 @@ html,body {
   font-family: 'Jost', sans-serif;
 }
 nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: auto;
+}
+.nav-icon {
+  font-size: 1.5rem;
+  color: rgb(44, 44, 44);
+  transition: .3s ease;
+  margin: 0 .5rem;
+}
+.nav-icon:active {
+  font-size: 1.7rem;
 }
 #logo {
   font-family: 'Pacifico', cursive;
@@ -27,18 +39,25 @@ nav {
 
 @media screen and (max-width: 750px) {
   input,
-textarea,
-button,
-select,
-a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+  .nav-icon {
+    color: rgb(44, 44, 44);
+    transition: .3s ease;
+  }
+  .nav-icon:active {
+    font-size: 1.4rem;
+  }
   .container {
     width: 95%;
   }
   .main {
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: .5rem;
   }
 }
 
@@ -146,10 +165,9 @@ a {
     border-right: 1px solid gray;
   }
   #sidelist-music-list {
-    
     height: 18rem;
     overscroll-behavior: contain
-}
+  }
   .sidelist-music {
     padding: 0;
   }

@@ -25,13 +25,14 @@ class ContextClass extends React.Component {
         });
     }
 
+    // pick random index for shuffle play
     pickRandomIndex = () => {
         let randomIndex = Math.floor(Math.random() * this.state.musics.length)
         return randomIndex === this.state.pickedMusic.index ? this.pickRandomIndex() : randomIndex;
     }
     
     componentDidUpdate() {
-        if (this.state.duration > this.state.pickedMusic.duration - 1.1) {
+        if (this.state.duration >= this.state.pickedMusic.duration) {
             let index = this.state.shuffle ? this.pickRandomIndex() : this.state.pickedMusic.index + 1 === this.state.musics.length ? 0 : this.state.pickedMusic.index + 1;
             this.changeMusic(this.state.musics[index]);
             this.setState({duration: 0})
@@ -42,7 +43,7 @@ class ContextClass extends React.Component {
     playMusic = () => {
       let music = document.querySelector("#besmt");
       music.play();
-      this.setState({ interval: setInterval(() => this.setState({duration: Math.floor(music.currentTime)}),100),isPlaying: true}); 
+      this.setState({ interval: setInterval(() => this.setState({duration: Math.ceil(music.currentTime)}),100),isPlaying: true}); 
   }
 
     // pause the music
@@ -75,7 +76,7 @@ class ContextClass extends React.Component {
         curmusic.src = music.src;
         curmusic.play().then(res => curmusic.play()).catch(err => curmusic.play());
         clearInterval(this.state.interval);
-        this.setState({interval: setInterval(() => this.setState({duration: Math.floor(curmusic.currentTime)}),100), isPlaying: "true"}); 
+        this.setState({interval: setInterval(() => this.setState({duration: Math.ceil(curmusic.currentTime)}),100), isPlaying: "true"}); 
     }
 
     changeState = (val) => {
