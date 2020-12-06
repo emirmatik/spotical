@@ -1,5 +1,5 @@
 import React from 'react';
-import {db} from "./components/firebase"
+import {db} from "./firebase"
 const MyContext = React.createContext();
 
 class ContextClass extends React.Component {
@@ -32,7 +32,7 @@ class ContextClass extends React.Component {
     }
     
     componentDidUpdate() {
-        if (this.state.duration >= this.state.pickedMusic.duration) {
+        if (this.state.duration >= this.state.pickedMusic && this.state.pickedMusic.duration) {
             let index = this.state.shuffle ? this.pickRandomIndex() : this.state.pickedMusic.index + 1 === this.state.musics.length ? 0 : this.state.pickedMusic.index + 1;
             this.changeMusic(this.state.musics[index]);
             this.setState({duration: 0})
