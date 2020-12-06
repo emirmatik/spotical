@@ -10,7 +10,7 @@
 
 ./README.md
 
-/.env
+/env
 
 # production
 /build
