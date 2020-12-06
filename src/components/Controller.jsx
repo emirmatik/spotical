@@ -16,8 +16,6 @@ function MusicPlayer() {
     let currTime = `${duration / 60 < 10 ? '0' + Math.floor(duration / 60) : Math.floor(duration / 60)}:${duration % 60 < 10 ? "0" + duration % 60 : duration % 60}`;
     let totalTime = pickedMusic && `${pickedMusic.duration / 60 < 10 ? '0' + Math.floor(pickedMusic.duration / 60) : Math.floor(pickedMusic.duration / 60)}:${pickedMusic.duration % 60 < 10 ? "0" + pickedMusic.duration % 60 : pickedMusic.duration % 60}`;
 
-
-
     const playPrevMusic = () => {
         let prevIndex = duration > 10 ? pickedMusic.index : shuffle ? randomIndex() : pickedMusic.index - 1 === -1 ? musics.length - 1 : pickedMusic.index - 1;
         changeMusic(musics[prevIndex])
