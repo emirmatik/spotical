@@ -8,8 +8,14 @@
 # testing
 /coverage
 
+./README.md
+
+/env
+
 # production
 /build
+
+/splash
 
 # misc
 .DS_Store

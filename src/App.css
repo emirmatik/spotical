@@ -12,8 +12,20 @@ html,body {
   font-family: 'Jost', sans-serif;
 }
 nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: auto;
+}
+.nav-icon {
+  font-size: 1.5rem;
+  color: rgb(44, 44, 44);
+  transition: .3s ease;
+  margin: 0 .5rem;
+}
+.nav-icon:active {
+  font-size: 1.7rem;
 }
 #logo {
   font-family: 'Pacifico', cursive;
@@ -26,19 +38,33 @@ nav {
 } 
 
 @media screen and (max-width: 750px) {
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+  .nav-icon {
+    color: rgb(44, 44, 44);
+    transition: .3s ease;
+  }
+  .nav-icon:active {
+    font-size: 1.4rem;
+  }
   .container {
     width: 95%;
   }
   .main {
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: .5rem;
   }
 }
 
 /* side list start */
 
 .sidelist-container {
-  min-width: auto;
+  min-width: 30%;
   height: 80vh;
 }
 .sidelist {
@@ -48,6 +74,18 @@ nav {
   border-right: 1px solid gray;
   padding-right: 1rem;
 }
+#music-search {
+  width: 20%;
+  padding: .1rem;
+  border: none;
+  border-bottom: 2px solid gray;
+  transition: .3s ease all;
+}
+#music-search:focus {
+  width: 50%;
+  outline: none;
+  border-bottom: 2px solid black;
+}
 #side-list-header {
   font-weight: 600;
   font-family: 'Montserrat', sans-serif ;
@@ -55,7 +93,7 @@ nav {
 #sidelist-music-list {
   scroll-behavior: smooth;
   overflow-y: scroll;
-  height: 90%;
+  height: 85%;
 }
 #sidelist-music-list::-webkit-scrollbar-track
 {
@@ -99,7 +137,8 @@ nav {
 }
 #close-side-list {
   position: absolute;
-  right: -6.5%;
+  right: -1.55rem;
+  width: 1.5rem;
   top: 40%;
   display: flex;
   justify-content: center;
@@ -126,10 +165,9 @@ nav {
     border-right: 1px solid gray;
   }
   #sidelist-music-list {
-    
     height: 18rem;
     overscroll-behavior: contain
-}
+  }
   .sidelist-music {
     padding: 0;
   }
@@ -162,8 +200,8 @@ nav {
   margin: 3rem 0;
 }
 .music-photo {
-  width: 20rem;
-  height: 20rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -171,6 +209,13 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media screen and (min-width: 1440px) {
+  .music-photo {
+    width: 20rem;
+    height: 20rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -203,6 +248,14 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+ #duration-text {
+    user-select: none;
+  }
+#shuffle-btn {
+  margin-left: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
 #music-prev-next-btn {
   font-size: 2rem;
   cursor: pointer;
@@ -211,6 +264,16 @@ nav {
   font-size: 2rem;
   margin: 0 .5rem;
   cursor: pointer;
+  transition: .2s ease;
+}
+#music-play-btn:active, #music-prev-next-btn:active, #shuffle-btn:active {
+  transform: scale(0.9);
+}
+#volume-div {
+  transition: .3s ease;
+}
+#volume-div:active  {
+  transform: scale(1.2);
 }
 #volume-icon {
   font-size: 1.5rem;
@@ -223,6 +286,9 @@ nav {
 }
 
 @media screen and (max-width: 750px) {
+  #shuffle-btn,#music-prev-next-btn,#music-play-btn {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
   .music-controller {
     width: 100%;
   }
@@ -231,14 +297,14 @@ nav {
     align-items: center;
     justify-content: space-around;
   }
+  #shuffle-btn {
+  font-size: 1.7rem;
+}
   #music-prev-next-btn {
     font-size: 2rem;
   }
   #music-play-btn {
     font-size: 1.7rem;
-  }
-  #volume-icon {
-    display: none;
   }
   #volume-div {
     display: none !important;
