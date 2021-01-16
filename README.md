@@ -6,8 +6,8 @@
 [x] <del>fix little issue with music layout animations</del> <br/>
 [ ] night mode <br/>
 [ ] keep the last listened music and where it stopped in local storage / cookies to set them when the app reopens <br/>
-[ ] replay current music button <br/>
-[ ] add queue feature <br/>
+[ ] 'replay current music' button <br/>
+[ ] add to queue feature <br/>
 [ ] custom application icon <br/>
 
 **Live link: https://spotispoti.netlify.app/**
