@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Spotical - Music Web App 🎵
+- Minimalist and clear UI
+- Mobile friendly
+
+### Todos
+[x] <del>fix little issue with music layout animations</del> <br/>
+[ ] night mode <br/>
+[ ] keep the last listened music and where it stopped in local storage / cookies to set them when the app reopens <br/>
+[ ] 'replay current music' button <br/>
+[ ] add to queue feature <br/>
+[ ] custom application icon <br/>
+
+**Live link: https://spotispoti.netlify.app/**
+
+## Photos 
+![desktop1.0](https://i.ibb.co/yddZbgT/open-list.png) <br/>
+![desktop1.1](https://i.ibb.co/wYfGb5g/closed-list.png) <br/>
+### Mobile <hr/>
+![mobile1.0](https://i.ibb.co/dkjnTmq/mobile.png) <br/>
+
+<hr/>
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
