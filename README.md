@@ -4,9 +4,9 @@
 
 ### Todos
 [x] <del>fix little issue with music layout animations</del> <br/>
-[x] night theme <br/>
+[x] <del>night theme <br/>
+[x] <del>'replay current music' button <br/>
 [ ] keep the last listened music and where it stopped in local storage / cookies to set them when the app reopens <br/>
-[x] 'replay current music' button <br/>
 [ ] add to queue feature <br/>
 [ ] custom application icon <br/>
 
