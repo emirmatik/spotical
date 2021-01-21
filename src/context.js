@@ -4,6 +4,7 @@ const MyContext = React.createContext();
 
 class ContextClass extends React.Component {
     state = {
+        loading: true,
         duration: 0,
         volume: 100,
         pickedMusic: null,
@@ -22,7 +23,7 @@ class ContextClass extends React.Component {
             snap.forEach(doc => {
                 m.push(doc.data())
             })
-            this.setState({musics: m.sort((a,b) => a.index - b.index), pickedMusic: m[0]})
+            this.setState({musics: m.sort((a,b) => a.index - b.index), pickedMusic: m[0], loading: false})
         });
     }
 

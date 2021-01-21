@@ -16,12 +16,12 @@ function MusicPlayer() {
 
     // }, [window.innerWidth])
 
-    const containerW = () => {
-        if (window.innerWidth <= 800) return null
-        if (window.innerWidth <= 1024) return 500
-        if (window.innerWidth <= 1440) return 750
-        else return 900;
-    }
+    // const containerW = () => {
+    //     if (window.innerWidth <= 800) return null
+    //     if (window.innerWidth <= 1024) return 500
+    //     if (window.innerWidth <= 1440) return 750
+    //     else return 900;
+    // }
 
     const plackAnimation = {
         run: { scale: [1, 1.04, 1] },
@@ -31,7 +31,7 @@ function MusicPlayer() {
     return (
         <motion.div animate={openSide ? 'open' : 'closed'}
             variants={right_container_variants}
-            custom={containerW()}
+            // custom={containerW()}
             className="music-player-container">
             <div className="current-music-div">
                 <motion.div className="music-photo"
