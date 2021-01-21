@@ -11,6 +11,7 @@ class ContextClass extends React.Component {
         openSide: true,
         isPlaying: false,
         shuffle: false,
+        repeat: false,
         musics: [],
     }
 
@@ -32,8 +33,10 @@ class ContextClass extends React.Component {
     }
     
     componentDidUpdate() {
-        if (this.state.duration >= this.state.pickedMusic && this.state.pickedMusic.duration) {
+        // sarkı bittiğini anlamıyor düzelt
+        if (this.state.duration >= this.state.pickedMusic.duration) {
             let index = this.state.shuffle ? this.pickRandomIndex() : this.state.pickedMusic.index + 1 === this.state.musics.length ? 0 : this.state.pickedMusic.index + 1;
+            if (this.state.repeat) index = this.state.pickedMusic.index; // if repeat music bttn is activated
             this.changeMusic(this.state.musics[index]);
             this.setState({duration: 0})
         }
@@ -55,17 +58,17 @@ class ContextClass extends React.Component {
     }
 
     // changing the music volume with slider
-    changeVolume = (e) => {
+    changeVolume = (e, newValue) => {
         let music = document.querySelector("#besmt");
-        music.volume = e.target.value / 100
-        this.setState({volume: e.target.value})
+        music.volume = newValue / 100
+        this.setState({volume: newValue})
     }
 
     // changing the duration with slider
-    changeDuration = (e) => {
+    changeDuration = (e, newValue) => {
         let music = document.querySelector("#besmt");
-        music.currentTime = e.target.value;
-        this.setState({duration: e.target.value})
+        music.currentTime = newValue;
+        this.setState({duration: newValue})
     }
 
 
