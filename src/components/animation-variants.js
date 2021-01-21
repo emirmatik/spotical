@@ -49,16 +49,18 @@
     }
 
     export const right_container_variants = {
-        open: {
+        open: containerW => ({
             x: 0,
+            width: !containerW ? "95%" : containerW + "px",
             transition: {
                 type: "spring",
                 stiffness: 50,
                 // restDelta: 2
             }
-        },
+        }),
         closed: {
             x: "-20%",
+            width: "100%",
             transition: {
                 type: "spring",
                 delay: 0.5,

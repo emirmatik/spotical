@@ -42,12 +42,13 @@ function SideList() {
                             whileTap={{ scale: 0.98 }}
                             key={i}
                             onClick={() => changeMusic(music)}
-                            style={{ background: pickedMusic && pickedMusic.showname == music.showname && "rgb(230, 230, 230)" }}
+                            // style={{ background: pickedMusic && pickedMusic.showname == music.showname && "rgb(230, 230, 230)" }}
+                            // style={{ background: pickedMusic && pickedMusic.showname == music.showname && "#39393b" }}
                             className="sidelist-music">
                             <motion.div className="sidelist-music-cover">
                                 <img alt="littcover" src={music.littleCover} />
                             </motion.div>
-                            <motion.p className="sidelist-music-name">{music.showname.length > 40 ? music.showname.slice(0, 40) + ".." : music.showname}</motion.p>
+                            <motion.p style={{ color: pickedMusic && pickedMusic.showname == music.showname && "#C076F8" }} className="sidelist-music-name">{music.showname.length > 40 ? music.showname.slice(0, 40) + ".." : music.showname}</motion.p>
                         </motion.div>
                     ))}
                 </motion.div>
