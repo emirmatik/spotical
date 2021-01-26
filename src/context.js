@@ -6,7 +6,7 @@ class ContextClass extends React.Component {
     state = {
         loading: true,
         duration: 0,
-        volume: 100,
+        volume: 0,
         pickedMusic: null,
         interval: null,
         openSide: true,
@@ -20,10 +20,11 @@ class ContextClass extends React.Component {
         let m = [];
         db.collection("musics").onSnapshot(snap => {
             m = [];
+            let lastMusic = JSON.parse(localStorage.getItem("last-music"));
             snap.forEach(doc => {
                 m.push(doc.data())
             })
-            this.setState({musics: m.sort((a,b) => a.index - b.index), pickedMusic: m[0], loading: false})
+            this.setState({musics: m.sort((a,b) => a.index - b.index), pickedMusic: lastMusic ? m[lastMusic.index] : m[0], duration: lastMusic ? lastMusic.duration : 0, volume: lastMusic ? lastMusic.volume : 100, loading: false})
         });
     }
 
@@ -34,7 +35,7 @@ class ContextClass extends React.Component {
     }
     
     componentDidUpdate() {
-        // sarkı bittiğini anlamıyor düzelt
+        localStorage.setItem("last-music", JSON.stringify({index: this.state.pickedMusic.index, volume: this.state.volume, duration: this.state.duration}));
         if (this.state.duration >= this.state.pickedMusic.duration) {
             let index = this.state.shuffle ? this.pickRandomIndex() : this.state.pickedMusic.index + 1 === this.state.musics.length ? 0 : this.state.pickedMusic.index + 1;
             if (this.state.repeat) index = this.state.pickedMusic.index; // if repeat music bttn is activated
@@ -45,9 +46,11 @@ class ContextClass extends React.Component {
 
     // play the music
     playMusic = () => {
-      let music = document.querySelector("#besmt");
-      music.play();
-      this.setState({ interval: setInterval(() => this.setState({duration: Math.ceil(music.currentTime)}),100),isPlaying: true}); 
+        let music = document.querySelector("#besmt");
+        music.currentTime = this.state.duration;
+        music.volume = this.state.volume / 100;
+        music.play();
+        this.setState({ interval: setInterval(() => this.setState({duration: Math.ceil(music.currentTime)}),100),isPlaying: true}); 
   }
 
     // pause the music
@@ -71,7 +74,6 @@ class ContextClass extends React.Component {
         music.currentTime = newValue;
         this.setState({duration: newValue})
     }
-
 
     // change the music when click on one
     changeMusic = (music) => {

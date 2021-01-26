@@ -296,7 +296,7 @@ nav {
   width: 15px;
   height: 15px;
 }
-
+/* loading screen start */
 .loading-screen {
   position: fixed;
   display: flex;
@@ -336,6 +336,10 @@ nav {
 .ball:nth-child(3) {
   animation: ballAnimation 0.5s .3s ease infinite alternate;
 }
+/* loading screen end */
+
+
+
 
 @keyframes ballAnimation{
   from {

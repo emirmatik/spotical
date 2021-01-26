@@ -1,13 +1,13 @@
 import React from 'react'
 
-function LoadingScreen(loading) {
+function LoadingScreen() {
 
     return (
-        <div class="loading-screen" >
-            <div class="frame">
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
+        <div className="loading-screen" >
+            <div className="frame">
+                <div className="ball"></div>
+                <div className="ball"></div>
+                <div className="ball"></div>
             </div>
         </ div>
     )
