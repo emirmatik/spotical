@@ -1,6 +1,7 @@
 # Spotical - Music Web App 🎵
 - Minimalist and clear UI
 - Mobile friendly
+- Give a like to your favorite musics as much as you want!
 
 ### Todos
 [x] <del>fix little issue with music layout animations</del> <br/>
