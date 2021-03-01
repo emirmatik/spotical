@@ -3,6 +3,7 @@ import { MyContext } from '../context';
 import { motion } from "framer-motion";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import { container_variants, item_div_variants, item_variants } from "./animation-variants";
+import { AiFillLike } from "react-icons/ai"
 
 const flexStyle = {
     display: "flex",
@@ -31,7 +32,7 @@ function SideList() {
                 variants={container_variants}>
 
                 <motion.div variants={item_variants} style={flexStyle}>
-                    <h2 id='side-list-header'>Musics</h2>
+                    <h2 id='side-list-header'>Tracks</h2>
                     <input type="text" id="music-search" placeholder="Search.." onChange={searchMusic} />
                 </motion.div>
                 <motion.hr variants={item_variants} />
@@ -46,9 +47,16 @@ function SideList() {
                             // style={{ background: pickedMusic && pickedMusic.showname == music.showname && "#39393b" }}
                             className="sidelist-music">
                             <motion.div className="sidelist-music-cover">
-                                <img alt="littcover" src={music.littleCover} />
+                                <img alt="littcover" src={music && music.cover} />
                             </motion.div>
-                            <motion.p style={{ color: pickedMusic && pickedMusic.showname == music.showname && "#C076F8" }} className="sidelist-music-name">{music.showname.length > 40 ? music.showname.slice(0, 40) + ".." : music.showname}</motion.p>
+                            <motion.div className="sidelist-music-info">
+                                <motion.p style={{ color: pickedMusic && pickedMusic.showname == music.showname && "#C076F8" }} className="sidelist-music-name">{music.showname.length > 32 ? music.showname.slice(0, 32) + ".." : music.showname}</motion.p>
+                                <div className="sidelist-music-likeDiv">
+                                    <AiFillLike />
+                                    <p>{music.likes}</p>
+                                </div>
+                            </motion.div>
+
                         </motion.div>
                     ))}
                 </motion.div>

@@ -1,9 +1,12 @@
-html,body {
-  width: 100%;
-  max-height: 100vh;
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
   background-color: #19191a;
   color: #cecece;
 }
@@ -19,6 +22,7 @@ nav {
   justify-content: space-between;
   width: 100%;
   height: auto;
+  padding-top: 1rem;
 }
 .nav-icon {
   font-size: 1.5rem;
@@ -38,15 +42,15 @@ nav {
 /*  main container start */
 .main {
   display: flex;
-  margin-top: 3rem;
+  padding-top: 3rem;
   justify-content: space-between;
 } 
-
 
 /* side list start */
 
 .sidelist-container {
   width: 450px;
+  max-width: 100%;
   height: 80vh;
 }
 .sidelist {
@@ -77,19 +81,21 @@ nav {
   /* color: #C076F8; */
 }
 #sidelist-music-list {
+  margin-top: 0.25rem;
   scroll-behavior: smooth;
   overflow-y: scroll;
-  height: 85%;
+  height: 95%;
 }
-#sidelist-music-list::-webkit-scrollbar-track
+#sidelist-music-list::-webkit-scrollbar
 {
+  display: none;
 	/* background-color: #cecece; */
 	background-color: #39393b;
 }
 
 #sidelist-music-list::-webkit-scrollbar
 {
-  width: 5px;
+  width: 2px;
 	/* background-color: #cecece; */
 	background-color: #39393b;
 }
@@ -113,16 +119,32 @@ nav {
 }
 .sidelist-music-cover {
   width: 3rem;
-  height: 3rem;
+  height: 2.5rem;
 }
 .sidelist-music-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.sidelist-music-name {
+.sidelist-music-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   margin-left: 1rem;
+}
+.sidelist-music-likeDiv {
+  max-height: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sidelist-music-likeDiv p {
+  font-size: 13px;
+  margin-left: .25rem;
+}
+.sidelist-music-name {
   cursor: pointer;
+  margin: 0;
   transition: .3s ease all;
 }
 #close-side-list {
@@ -142,8 +164,8 @@ nav {
   transition: .3s ease all;
 }
 #close-side-list:hover {
-  background: rgb(32, 32, 32);
-  color: white;
+  color: rgb(32, 32, 32);
+  background-color: white;
 }
 
 /* side list end */
@@ -215,14 +237,48 @@ nav {
   flex-direction: column;
   margin-bottom: 5rem;
 }
+
+.music-player-container-upper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 1;  
+}
+
 .current-music-div {
+  grid-column: 2;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
+.side-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.like-div {
+  display: flex;
+  flex-direction: column;  /* make this row after more sidebar options come */
+  align-items: center;
+}
+.like-btn {
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.like-div p {
+  font-weight: 500;
+  user-select: none;
+  margin-top: .25rem;
+}
+
 .upper-controller {
+  grid-column: 3;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -338,9 +394,6 @@ nav {
 }
 /* loading screen end */
 
-
-
-
 @keyframes ballAnimation{
   from {
     transform: translateY(100%);
@@ -357,46 +410,41 @@ nav {
   .container {
     width: 90%;
   }
-
   .sidelist-music-name {
     font-size: .9rem;
   }
-
   #volume {
     width: 100px;
   }
-
   .sidelist-container {
     width: 375px;
   }
-
   .music-player-container {
     width: 750px;
   }
-
   .music-photo {
     width: 15rem;
     height: 15rem;
   }
-
   .music-photo-border {
     width: 16rem;
     height: 16rem;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1199px) {
 
   .sidelist-music-name {
     font-size: .9rem;
   }
 
   .sidelist-container {
-    width: 250px;
+    width: 320px;
   }
 
   .music-player-container {
-    width: 500px;
+    width: 650px;
+    max-width: 100%;
   }
 
   .music-photo {
@@ -433,30 +481,44 @@ nav {
   }
 }
 
-@media screen and (max-width: 800px) {
-  
+@media screen and (max-width: 960px) {
   input,
   textarea,
   button,
   select,
+  svg,
   a {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
-  .nav-icon:active {
-    font-size: 1.4rem;
-  }
   .container {
     width: 95%;
+  }
+  .sidelist-container {
+    width: 85%;
+    margin: 0 auto;
+    height: 100%;
   }
   .main {
     flex-direction: column;
     margin-top: .5rem;
   }
-
-  .sidelist-container {
-    width: 85%;
-    margin: 0 auto;
+  #close-side-list {
+    display: none;
+  }
+  .music-player-container {
+    width: 95%;
     height: 100%;
+    margin: 3rem auto;
+    margin-bottom: 1rem;
+  }
+  .music-controller {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .nav-icon:active {
+    font-size: 1.4rem;
   }
   .sidelist {
     border-right: 1px solid gray;
@@ -466,26 +528,27 @@ nav {
     overscroll-behavior: contain
   }
   .sidelist-music {
-    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .sidelist-music-info {
+    max-width: calc(100% - 3rem);
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .sidelist-music-likeDiv {
+    max-height: 100%;
   }
   .sidelist-music-name {
     font-size: .8rem;
-    word-break: keep-all;
   }
   .sidelist-music-cover {
     width: 2rem;
     height: 2rem;
   }
-  #close-side-list {
-    display: none;
-  }
-
-  .music-player-container {
-    width: 95%;
-    height: 100%;
-    margin: 3rem auto;
-    margin-bottom: 1rem;
-  }
+ 
+  
   .music-name {
     font-size: 0.9rem;
     margin-top: 2rem;
@@ -500,9 +563,6 @@ nav {
   }
   #controller-btn,#music-prev-next-btn,#music-play-btn {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-  }
-  .music-controller {
-    width: 100%;
   }
   .upper-controller {
     grid-template-columns: 1fr 1fr 1fr;

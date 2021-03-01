@@ -22,9 +22,10 @@ class ContextClass extends React.Component {
             m = [];
             let lastMusic = JSON.parse(localStorage.getItem("last-music"));
             snap.forEach(doc => {
-                m.push(doc.data())
+                m.push({...doc.data(), id: doc.id})
             })
             this.setState({musics: m.sort((a,b) => a.index - b.index), pickedMusic: lastMusic ? m[lastMusic.index] : m[0], duration: lastMusic ? lastMusic.duration : 0, volume: lastMusic ? lastMusic.volume : 100, loading: false})
+            console.log(m);
         });
     }
 
@@ -35,7 +36,7 @@ class ContextClass extends React.Component {
     }
     
     componentDidUpdate() {
-        localStorage.setItem("last-music", JSON.stringify({index: this.state.pickedMusic.index, volume: this.state.volume, duration: this.state.duration}));
+        localStorage.setItem("last-music", JSON.stringify({index: this.state.pickedMusic ? this.state.pickedMusic.index : 0, volume: this.state.volume, duration: this.state.duration}));
         if (this.state.duration >= this.state.pickedMusic.duration) {
             let index = this.state.shuffle ? this.pickRandomIndex() : this.state.pickedMusic.index + 1 === this.state.musics.length ? 0 : this.state.pickedMusic.index + 1;
             if (this.state.repeat) index = this.state.pickedMusic.index; // if repeat music bttn is activated
@@ -80,9 +81,15 @@ class ContextClass extends React.Component {
         let curmusic = document.querySelector("#besmt");
         this.setState({pickedMusic: music})
         curmusic.src = music.src;
+        curmusic.volume = this.state.volume / 100;
         curmusic.play().then(res => curmusic.play()).catch(err => curmusic.play());
         clearInterval(this.state.interval);
         this.setState({interval: setInterval(() => this.setState({duration: Math.ceil(curmusic.currentTime)}),100), isPlaying: "true"}); 
+    }
+
+    likeMusic = () => {
+        let musicInDb = db.collection("musics").doc(this.state.pickedMusic.id);
+        musicInDb.update("likes", this.state.pickedMusic.likes+1);
     }
 
     changeState = (val) => {
@@ -98,6 +105,7 @@ class ContextClass extends React.Component {
              randomIndex: this.pickRandomIndex,
              changeDuration: this.changeDuration,
              changeMusic: this.changeMusic,
+             likeMusic: this.likeMusic,
              changeVolume: this.changeVolume}}>
                 {this.props.children}
            </MyContext.Provider>
