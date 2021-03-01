@@ -1,6 +1,7 @@
 # Spotical - Music Web App 🎵
 - Minimalist and clear UI
 - Mobile friendly
+- Give a like to your favorite music as much as you want!
 
 ### Todos
 [x] <del>fix little issue with music layout animations</del> <br/>
@@ -13,10 +14,9 @@
 **Live link: https://spotispoti.netlify.app/**
 
 ## Photos 
-![desktop1.0](https://i.ibb.co/yddZbgT/open-list.png) <br/>
-![desktop1.1](https://i.ibb.co/wYfGb5g/closed-list.png) <br/>
+![desktop1.0](https://i.ibb.co/FV7bqwK/music.png) <br/>
 ### Mobile <hr/>
-![mobile1.0](https://i.ibb.co/dkjnTmq/mobile.png) <br/>
+![mobile1.0](https://i.ibb.co/fxvBdKW/mobile-dark.png) <br/>
 
 <hr/>
 
