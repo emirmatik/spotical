@@ -1,13 +1,12 @@
 import firebase from "firebase";
 
 var firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    databaseURL: process.env.DATABASE_URL,
-    projectId: "spotical-f4e18",
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID
+    apiKey: "AIzaSyBJWsUeOODcoU2A1YTubE1ouKNWnKLtw8Y",
+    authDomain: "yatassa-chat.firebaseapp.com",
+    projectId: "yatassa-chat",
+    storageBucket: "yatassa-chat.appspot.com",
+    messagingSenderId: "18890177827",
+    appId: "1:18890177827:web:7dc6d15f19d999610aa096"
   };
 
   firebase.initializeApp(firebaseConfig);
